@@ -1,0 +1,79 @@
+﻿@media screen and (max-width: 1025px) {
+
+    .app-content {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 961px) /* tablet, landscape iPad, lo-res laptops ands desktops */
+{
+
+    .global-search {
+        margin-top: -8px;
+        width: 251px !important;
+    }
+
+    .right-container {
+        left: 19%;
+    }
+
+
+    .full-width-tablet {
+        width: 88% !important;
+    }
+
+    .width35-percent, .width30-percent {
+        display: none;
+    }
+
+    .width65-percent, .width70-percent {
+        width: 100%;
+    }
+
+    .side-bar {
+        width: 32%;
+    }
+
+    .main-container {
+        width: 68%;
+    }
+
+    .app-content {
+    width: 100%;
+    
+    }
+    .row-middle {
+    
+     width: 100%;
+    }
+
+    .right-container {
+    
+         left: 0;    width: 100%;
+    }
+    .header-nav li {    
+    }
+     .hide-on-tablet {
+        display: none !important;
+    }
+    #add_new {
+    
+    left: 78%;
+    }
+}
+
+@media screen and (max-width: 741px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+    .full-width-tablet {
+        width: 100% !important;
+    }
+
+    .hide-on-desktop {
+        display: block;
+    }
+    /*.show-on-tablet{}*/
+
+}

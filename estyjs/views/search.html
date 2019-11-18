@@ -1,0 +1,121 @@
+﻿
+<div class="pull-left hide-on-tablet side-bar">
+
+    <div class="full-width buffer-top" style="  padding: 10px;    border-radius: 5px;">
+        <ul class="nav-vertical " style="font-size:18px;">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#livefeed">Feed</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#notification">Notification</a></li>
+            <li><a href="#logout">Log Out</a></li>
+        </ul>
+
+    </div>
+
+</div>
+<div class="width30-percent full-height pull-right padding-10  hide-on-tablet ">
+
+
+
+</div>
+
+<div class="width50-percent full-height pull-right full-width-tablet ctr-right-5-percent padding-10">
+
+    <div class="full-width buffer-top" style="display:block">
+        <!--<input type="text" class="form-control" id="txtSearchInner" />-->
+
+        <div class="input-container">
+            <input type="text" class="form-control input-field" id="txtSearchInner" />
+            <button class="input-button btn btn-light-blue" id="btnSearchAgain">Search</button>
+        </div>
+
+    </div>
+    <div class="full-width no-display" id="search-result-view">
+        <!--<ul class="search-nav nav-horizontal profile-header buffer-top">
+            <li class="search-li search-selection" id="tab-feed">All</li>
+
+            <li class="search-li " id="tab-Follower">People</li>
+            <li class="search-li " id="tab-Following">Quick Feed</li>
+            <li class="search-li " id="tab-Following">Question</li>
+            <li class="search-li " id="tab-Following">Article</li>
+        </ul>-->
+
+
+
+        <div class="full-width " id="view-people">
+            <h4>People</h4>
+            <div id="viewPeople" class="buffer-top full-width padding-10 bg-white box"></div>
+
+            <div style="width:200px; margin:0px auto" id="loaderPeople" class="no-display"><img src="../resource/images/default/loader.gif" height="40" /></div>
+            <div class="full-width  buffer-bottom buffer-top">
+                <input type="button" value="See more" class="btn-transparent pull-right no-focus no-display" id="btnShowMorePeople" />
+            </div>
+        </div>
+
+
+
+        <div class="full-width">
+            <h4>Article</h4>
+            <div id="view-article" class="buffer-top box"></div>
+            <div style="width:200px; margin:0px auto" id="loaderFeed" class="no-display"><img src="../resource/images/default/loader.gif" height="40" /></div>
+            <div class="full-width buffer-top buffer-bottom">
+
+                <input type="button" class="btn-transparent no-focus pull-right" value="See more" id="btnShowMoreFeed" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .input-container {
+        width: 100%;
+        /* border: 1px solid #a9a9a9; */
+        float: left;
+    }
+
+        .input-container input:focus, .input-container input:active {
+            outline: none;
+        }
+
+        .input-container input {
+            width: calc(100% - 54px);
+            float: left;
+            border-right: 0;
+            border-radius: 4px 0px 0px 4px !important;
+            background-image: url(../resource/images/icon/search_gray.png);
+            background-repeat: no-repeat;
+            background-position: 8px;
+            padding-left: 26px;background-size: 14px;
+        }
+
+        .input-container button {
+            float: left;
+            height: 30px;
+            width: 54px;
+            border-radius: 0px 2px 2px 0px;
+        }
+
+    .search-nav {
+        margin: 10px 0;
+        float: left;
+        width: 100%;
+    }
+
+        .search-nav li {
+            width: 20%;
+            float: left;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 37px;
+            height: 40px;
+            background: #fff;
+            padding: 0 8px 0 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+    .search-selection {
+        border-bottom: 2px solid #2980b9;
+    }
+</style>

@@ -1,0 +1,206 @@
+﻿/* Style for viewports greater than 320px wide. */
+/*@media (min-width: 20em) {
+  .Component {
+    background-color: blue;
+  }
+}*/
+
+/*@media only screen and (max-width: 400px)*/
+
+@media only screen and (max-width: 700px) {
+
+    .feed-modify-wp {
+        margin-top: 38px !important;
+        width: 190px !important;
+    }
+
+    .logo {
+        margin-top: -4px !important;
+    }
+
+    #add_new {
+        left: 77% !important;
+        top: 83% !important;
+    }
+
+    .feed-img {
+        object-fit: cover;
+        /*width: 100% !important;*/
+        max-height: 180px !important;
+    }
+    #slideshow-wrapper {
+        height: 320px;
+    background: #000;
+    width: 100% !important;
+    }
+    .feed_header {
+        border-left: 0 !important;
+        border-right: 0 !important;
+    }
+
+    .hmc {
+        width: 96% !important;
+    }
+
+    .nav-bar {
+        display: block;
+        position: fixed;
+        float: left;
+        margin-top: 0 !important;
+        padding-top: 10px;
+        height: 46px !important;
+    }
+
+    .comment-modify-wrapper {
+        margin-left: -174px !important;
+    }
+
+    .side-bar {
+        display: none !important;
+    }
+
+    .ctr-right-5-percent {
+        margin-right: 0% !important;
+    }
+
+    .right-container {
+        width: 100% !important;
+        float: left;
+        position: relative !important;
+        left: 0 !important;
+        top: 0;
+    }
+
+    .app-content {
+        width: 100% !important;
+        margin: 0 !important;
+        float: left !important;
+    }
+
+    .app {
+        margin-top: -11px !important;
+        min-height: 566px !important;
+    }
+
+    .row-middle {
+        width: 100% !important;
+    }
+
+    body {
+        /*background: #f4f4f4 !important;*/
+        background:#fff !important;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    #cNav {
+        border-radius: 0px !important;
+        padding: 5px 4px 5px 3px;
+    }
+
+    .hide-on-desktop {
+        display: block !important;
+    }
+
+    .side-bar {
+        border-right: 1px solid #ccc;
+        height: 100%;
+        /*width: 75% !important;*/
+        width: 100% !important;
+        position: absolute;
+        background: #fff;
+        z-index: 400;
+    }
+
+
+    .accessContainer-inner {
+        width: 100% !important;
+        height: 248px;
+        background: #fff;
+        border-radius: 4px;
+        margin: 0px auto;
+        padding: 10px;
+        position: absolute;
+        top: -90px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+
+
+    .full-width-phone {
+        width: 100% !important;
+    }
+
+    .no-display-in-phone {
+        display: none !important;
+    }
+
+    .chatrow_userpicture_container {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .header-nav {
+        margin-top: 1px !important;
+        height: 7px !important;
+    }
+
+    .padding-10-desktop {
+        padding: 0px !important;
+    }
+
+    .header-nav li {
+        margin: 0 !important;
+        height: 29px !important;
+        float: left !important;
+        width: 20% !important;
+    }
+
+    .chatHistoryWrapper {
+        height: calc(100% - 130px) !important;
+    }
+
+    .text-feed {
+        /*font-size: 11px;*/
+    }
+
+    .midle {
+        width: 100% !important;
+        margin: 4% auto;
+    }
+
+    .feedrow {
+        border-radius: 0px !important;
+        margin-top: -9px !important;
+        border-right: 0px !important;
+        border-left: 0px !important;
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+
+    .tabbar li {
+        background: #c7e3ef !important;
+        padding: 5px 0px 0px 0px !important;
+        line-height: 40px;
+    }
+
+    .popup-window {
+        width: 90% !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .header-nav li {
+        /*margin: 0 10px 0 19px !important;*/
+        float: left;
+    }
+}

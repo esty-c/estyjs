@@ -1,0 +1,610 @@
+﻿<div class="pull-left hide-on-tablet side-bar">
+
+    <div class="full-width buffer-top" style="  padding: 10px;    border-radius: 5px;">
+        <ul class="nav-vertical " style="font-size:18px;">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/livefeed">Feed</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/notification">Notification</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="width30-percent full-height pull-right padding-10  hide-on-tablet ">
+
+
+
+
+</div>
+<div class="width50-percent   buffer-botto pull-right full-width-phone" id="profileContainer" style="background:#E9EBEE">
+
+
+    <div class="full-width pull-left  bg-white buffer-botto padding-10">
+        <h6>Profile Picture</h6>
+
+        <div style="width:200px; margin:0px auto">
+            <div class="my-profile-pic-cont ">
+
+                <img src="resource/images/default/profile.svg" id="img_myset_picture" />
+            </div>
+
+        </div>
+
+
+        <div class="full-width  text-center ">
+            <p class="changeProfilepic buffer-top" id="changeProfilepic">change my picture</p>
+            <div class="full-width no-display" id="loaderProfileficture">
+                <img src="resource/images/default/loader.gif" height="50" style="margin-top: 4px;" />
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="full-width no-display">
+            <input type="file" name="fileUpload" id="uploadMyProfilepic" />
+        </div>
+
+
+
+    </div>
+
+
+    <div class="full-width myprofile bg-white buffer-top padding-10">
+        <h6>My Information</h6>
+        <form id="personalInfoForm">
+            <table class=" buffer-top ">
+
+                <tr>
+                    <td width="159">
+
+                        <label class="full-width">Name</label>
+
+
+                    </td>
+                    <td>
+
+
+                        <div class="full-width" id="show-profile-name">
+                            <input type="text" id="txtMyProfileName" required class="form-control no-display txteditprofile" bind="myname" />
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="full-width">Gender</label>
+
+                    </td>
+                    <td>
+
+                        <div class="full-width" id="show-profile-gender">
+                            <select id="ddlMyGender" class="form-control no-display">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="full-width">Date of Birth</label>
+             
+                    </td>
+                    <td>
+
+                        <div class="full-width" id="show-profile-gender">
+                            <input type="text" id="txtDob" required placeholder="dd-mm-yyyy" class="form-control no-display " bind="myname" />
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label class="full-width">About Me</label>
+                        <span id="lblMyGender"></span>
+                    </td>
+                    <td>
+
+                        <div class="full-width" id="show-profile-gender">
+                            <textarea type="text" id="txtAboutMe" placeholder="About Me" class="form-control textarea no-display txteditprofile" bind="myname"></textarea>
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" value="Update" class="btn btn-blue" id="btnUpdate" >
+
+                            <span>Update</span>
+                        </button>
+                    </td>
+                </tr>
+
+
+
+                <tr class="no-display">
+                    <td>
+                        <label class="full-width">Account Status</label>
+                        <span>Activate</span>
+                    </td>
+                    <td><label class="pull-left btn" style="color:#0b5178; cursor:pointer; font-size:10px;" id="lblDeActivate">Deactive</label></td>
+
+                </tr>
+
+            </table>
+        </form>
+    </div>
+
+
+    <div class="full-width pull-left  bg-white buffer-top padding-10">
+        <h6>Address Info</h6>
+
+        <form id="addressInfoForm">
+
+            <table>
+                <tr>
+                    <td><label>Country</label></td>
+                    <td>
+                        <select class="form-control" id="ddlCountry">
+                            <option value="bd">Bangladesh</option>
+                            <option value="ind">India</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label>Current City</label></td>
+                    <td><input type="text" class="form-control" placeholder="Current City" id="txtCity" required /></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                    
+                    <button type="submit" class="btn btn-blue" id="btnSaveAdddressInfo" placeholder="Designation" value="Save Change" >
+                        <span>Save Change</span>
+
+                    </button>
+                    
+                    
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+
+
+
+    </div>
+
+    <div class="full-width pull-left  bg-white buffer-top padding-10 no-display">
+        <h6>Contact Info</h6>
+
+        <table>
+            
+            <tr>
+                <td><label>Mobile</label></td>
+                <td><input type="text" class="form-control" placeholder="Designation" /></td>
+                <td>
+                    <button type="button" value="Save" class="btn btn-blue" >
+                    <span>Save</span>
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label class="full-width">User Name</label>
+
+
+                </td>
+                <td>
+
+
+                    <div class="full-width">
+                        <!--<input type="text" id="txt_myprofile_username" class="no-display form-control  txteditprofile" />-->
+                        <label id="lbl_myprofile_username" class="lbleditprofile"></label>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <label class="full-width">Email</label>
+
+                </td>
+                <td>
+
+
+                    <div class="full-width">
+                        <!--<input type="text" id="txt_myprofile_email" class="no-display form-control  txteditprofile" bind="profile_email" />-->
+                        <a id="lbl_myprofile_email" class="lbleditprofile" bind="profile_email">Send an Email </a>
+
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+
+
+
+    </div>
+
+
+    <div class="full-width pull-left  bg-white buffer-top padding-10 no-display">
+        <h6>Workplace Info</h6>
+
+        <table>
+            <tr>
+                <td><label>Work At</label></td>
+                <td><input type="text" class="form-control" placeholder="Add new  workplace" /></td>
+                <td><input type="button" value="Save" class="btn btn-blue" /></td>
+
+            </tr>
+
+            <tr>
+                <td><label>Designation</label></td>
+                <td><input type="text" class="form-control" placeholder="Designation" /></td>
+                <td><input type="button" value="Save" class="btn btn-blue" /></td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+
+
+    <div class="full-width bg-white buffer-top">
+        <div class="myprofile-body">
+
+
+            <div class="full-width ">
+
+                <div class="full-width pull-right">
+                    
+                    <div class="full-width">
+                        <h4>Login Info</h4>
+                        <table class="table">
+
+                            <tr>
+                                <td width="75%">
+                                    <label class="full-width">Change Password</label>
+                                    <span>It's a good idea to use a strong password that you're not using elsewhere</span>
+
+                                </td>
+                                <td><h5 class="text-center" id="lblChangePassword" style="color: #0b5178; cursor: pointer; font-size: 12px;">Change my Password</h5></td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="full-width">
+
+
+                        <div class="full-width no-display" id="changePasswordBusy">
+                            <div class="width75-percent pull-left">
+                                <div class="full-width buffer-top"><input type="password" class="form-control" placeholder="Old Password" id="txtOldPassword" /></div>
+                                <div class="full-width buffer-top"><input type="password" class="form-control" placeholder="New Password" id="txtNewPassword" /></div>
+
+                                <div class="full-width buffer-top">
+                                    <input type="button" class="btn btn-blue btn-sm pull-left" value="Change" id="btnChangePassword" />
+                                </div>
+                            </div>
+                            <div class="width25-percent pull-left">
+
+                                <img src="resource/images/loader/loader.gif" class="no-display" id="ajaxPasswordChange" width="50" style="float:left;margin-top: -10px;" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+            <!--<div class="full-width buffer-top" style="    margin-bottom: 61px;">
+                <input type="button" class="btn btn-red" id="btnGetBlockedList" value="Get Blocklist" />
+                <table class="full-width table-border buffer-top" id="listViewBlockedList"></table>
+            </div>-->
+
+
+        </div>
+    </div>
+
+</div>
+
+<!--<script>
+    var headers = localStorage.getItem('access_token');
+  var  account_id = localStorage.getItem('account_id');
+    setingsApi = {
+    
+        updateProfile: function () {
+            let gender = e('#ddlMyGender').val();
+            let senddata = { Name: e('#txtMyProfileName').val(), Gender: gender, Email: 'abcd@gmail.com', Password: '1234', UserName: 'abcd' };
+            new HttpRequest(host + "api/apiuser/updateprofile", function () { }, headers).postRequest(JSON.stringify(senddata), function (data) {
+                let json = JSON.parse(data);
+                console.log(json);
+
+                displayMessage(json.message);
+
+            });
+
+        },
+        uploadProfilePicture: function () {
+            var totalFiles = document.getElementById("uploadMyProfilepic").files.length;
+            var formData = new FormData();
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById('uploadMyProfilepic').files[i];
+                formData.append('image', file);
+            }
+            var url = host + 'api/apiuser/uploadprofilepicture';
+            new HttpRequest(url, function () { }, headers).formRequest(formData, function (json) {
+                json = JSON.parse(json);
+                e('#loaderProfileficture').hide();
+                if (json.flag) {
+                    displayMessage(json.message);
+
+                    localStorage.setItem('profile_picture', host + json.profile_picture);
+                    e('#myPorfilePic').getObject(0).setAttribute('src', json.profile_picture);
+                }
+
+            });
+
+        },
+
+        changePassword: function (old_password, new_password) {
+            e('#ajaxPasswordChange').show();
+            var url = host + '/api/apiuser/changepassword';
+            var senddata = { "old_password": old_password, 'new_password': new_password };
+            new HttpRequest(url, function () { }, headers).postRequest(JSON.stringify(senddata), function (json) {
+                json = JSON.parse(json);
+                console.log("changePassword" + json.flag);
+                displayMessage(json.message);
+                e('#ajaxPasswordChange').hide();
+                if (json.flag) {
+                    e('#changePasswordBusy').hide();
+                }
+            })
+
+        },
+        getBlockFriends: function () {
+            var url = host + 'api/ApiBlockFriend/GetBlockedFriends';
+            new HttpRequest(url, function () { }, headers).getRequest(function (json) {
+                console.log("blockFriend" + json.flag);
+
+
+                json.block_list.forEach(function (obj) {
+
+
+
+                    if (obj.profile_picture != null) {
+                        obj.profile_picture = host + obj.profile_picture + "&type=sm";
+                    }
+                    else {
+                        obj.profile_picture = 'resource/images/default/profile.svg';
+                    }
+
+
+                    //   $("#blockedTemplat").tmpl(obj).appendTo("#listViewBlockedList");
+                    new Template(json.block_list, 'blockedTemplat', 'listViewBlockedList').html();
+                });
+
+                e('.btnUnblock').on('click', function () {
+
+                    var account_id = this.getAttribute('data-account_id');
+                    setingsApi.unBlockFriend(account_id);
+                    $(this).closest('tr').hide();
+                });
+
+
+
+            });
+        },
+
+        unBlockFriend: function (account_id) {
+            var url = host + 'api/ApiBlockFriend/UnBlockFriend';
+            var senddata = { "account_id": account_id };
+            new HttpRequest(url, function () { }, headers).postRequest(JSON.stringify(senddata), function (json) {
+                console.log("blockFriend" + json.flag);
+
+            });
+        }
+    };
+
+    apiCall.getProfileInfo(account_id, function (json) 
+    {
+     
+
+     
+        if (json.profile.about_me == null) {
+            json.profile.about_me = '';
+
+        }
+        if (json.profile.profile_picture != null) {
+            json.profile.profile_picture = host + json.profile.profile_picture;
+        }
+        else {
+            json.profile.profile_picture = 'resource/images/default/profile.svg';
+        }
+  
+        e('#txtMyProfileName').val(json.profile.name);
+
+        e('#txtAboutMe').val(json.profile.about_me);
+       
+        e('#ddlMyGender').val(json.profile.gender);
+     
+
+        if (json.profile.date_of_birth != null)
+        {
+            e('#txtDob').val(json.profile.date_of_birth);
+        }
+
+
+
+        if (json.profile.city != null) {
+            e('#txtCity').val(json.profile.city);
+        }
+
+        e('#ddlCountry').val(json.profile.country_id);
+    });
+
+
+    e('#btnSaveAdddressInfo').on('click', function () {
+
+
+    });
+    e('#addressInfoForm').on("submit", function (evnt) {
+        e('#loader-signup').show();
+        let country = e('#ddlCountry').val();
+        let city = e('#txtCity').val();
+    
+      
+        let senddata = { country_id: country, city_name: city };
+        console.log(senddata);
+        new HttpRequest(host + "api/apiuserupdate/UpdateAddressInfo", function () { }, headers).postRequest(JSON.stringify(senddata), function (data) {
+            let json = JSON.parse(data);
+            console.log(json);
+            displayMessage(json.message);
+          
+        });
+        evnt.preventDefault();
+        return false;
+
+
+    });
+    e('#changeProfilepic').on("click", changeProfilepic_event);
+    e("#uploadMyProfilepic").on('change', uploadMyProfilePicture);
+
+    e('#lblChangePassword').on('click', function () {
+
+        e('#changePasswordBusy').show();
+    });
+    e('#btnChangePassword').on('click', changePassword_event);
+    e('#btnGetBlockedList').on('click', getBlockList_event);
+
+
+    e('#personalInfoForm').on("submit", function (evnt) {
+        var name = e('#txtMyProfileName').val();
+        var gender = e('#ddlMyGender').val();
+        var dob = e('#txtDob').val();
+        var about = e('#txtAboutMe').val();
+
+
+        let senddata = { name: name, gender: gender, dob: dob, about_me: about };
+        new HttpRequest(host + "api/ApiUserUpdate/UpdateProfileInfo", function () { }, headers).postRequest(JSON.stringify(senddata), function (data) {
+            let json = JSON.parse(data);
+            console.log(json);
+
+            displayMessage(json.message);
+
+        });
+        evnt.preventDefault();
+        return false;
+    });
+
+
+    //e('#btnUpdate').on('click', function () {
+
+    //    var name = e('#txtMyProfileName').val();
+    //    var gender = e('#ddlMyGender').val();
+    //    var dob = e('#txtDob').val();
+    //    var about = e('#txtAboutMe').val();
+
+     
+    //    let senddata = { name: name, gender: gender, dob: dob, about_me: about };
+    //    new HttpRequest(host + "api/ApiUserUpdate/UpdateProfileInfo", function () { }, headers).postRequest(JSON.stringify(senddata), function (data) {
+    //        let json = JSON.parse(data);
+    //        console.log(json);
+
+    //        displayMessage(json.message);
+
+    //    });
+
+
+
+    //});
+
+
+
+
+
+
+
+
+
+
+    function getBlockList_event() {
+        setingsApi.getBlockFriends();
+    }
+
+    function changeProfilepic_event() {
+        document.getElementById('uploadMyProfilepic').click();
+    }
+
+
+
+
+
+
+
+    function changePassword_event() {
+
+        let oldPassword = e('#txtOldPassword').val();
+        let newPassword = e('#txtNewPassword').val();
+
+        if (oldPassword.length == 0 || newPassword.length == 0) {
+            displayMessage("field can't be empty");
+            return;
+        }
+        setingsApi.changePassword(oldPassword, newPassword);
+    }
+
+    function uploadMyProfilePicture() {
+        var totalFiles = document.getElementById("uploadMyProfilepic").files.length;
+
+        if (totalFiles > 0) {
+            readURL(this, "img_mypicture");
+            setingsApi.uploadProfilePicture()
+            e('#loaderProfileficture').show();
+        }
+    }
+
+    function readURL(input, imageView) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+
+                document.getElementById(imageView).setAttribute('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    e('.side-bar').show();
+</script>-->

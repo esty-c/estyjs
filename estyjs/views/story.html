@@ -1,0 +1,293 @@
+﻿<div class="pull-left hide-on-tablet side-bar">
+
+    <div class="full-width buffer-top" style="  padding: 10px;    border-radius: 5px;">
+        <ul class="nav-vertical " style="font-size:18px;">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/livefeed">Feed</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/notification">Notification</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="width30-percent full-height pull-right   hide-on-tablet ">
+    <div class="full-width  padding-10 buffer-bottom bg-white box">
+
+        <div style="width:60px; margin:0px auto;float:left; height:60px;">
+            <div class="profile_pic_small">
+
+                <img src="../resource/images/default/profile.svg" class="image my-profile" id="img_mypicture" style="border-radius: 38px;">
+            </div>
+
+        </div>
+        <div style="width: calc(100% - 69px); float: right">
+
+            <h6 class="lblMyName" style=" margin-bottom: 0;"></h6>
+            <p class="lblMyUserName"></p>
+        </div>
+        <div class="full-width buffer-top no-display">
+            <div style="width:30%;float:left">
+                <span class="text_bold" id="myTotalFeed"></span>
+                <p>feeds</p>
+            </div>
+            <div style="width:30%;float:left">
+                <span class="text_bold" id="myTotalFollower"></span>
+                <p>Follower</p>
+            </div>
+            <div style="width:30%;float:left">
+                <span class="text_bold" id="myTotalFollowing"></span>
+                <p>Following</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="full-width  padding-10 buffer-bottom bg-white box">
+        <h6>Populer Category</h6>
+
+        <a href="livefeed?category-name=information technology" class="ct-name">Information Technology</a>
+        <a href="livefeed?category-name=science" class="ct-name">Science</a>
+        <a href="livefeed?category-name=social" class="ct-name">Social</a>
+        <a href="livefeed?category-name=history" class="ct-name">History</a>
+        <a href="livefeed?category-name=politics" class="ct-name">Politics</a>
+        <a href="livefeed?category-name=sports" class="ct-name">Sports</a>
+        <a href="livefeed?category-name=computer and interner" class="ct-name">Computer and Interner</a>
+        <a href="livefeed?category-name=Health and Fitness" class="ct-name">Health and Fitness</a>
+        <a href="livefeed?category-name=education" class="ct-name">Education</a>
+
+        <a href="livefeed?category-name=beginner guides " class="ct-name">Beginner guides </a>
+        <a href="livefeed?category-name=current affairs" class="ct-name">Current Affairs </a>
+    </div>
+    <div class="full-width pull-left  full-height padding-10 box" style="background:#fff">
+
+        <h6>Populer Trends</h6>
+        <div class="full-width pull-left  ">
+            <ul class="nav-vertical trends"></ul>
+
+        </div>
+
+
+    </div>
+
+    <div class="full-width buffer-top box" style="    background: #fff; padding: 10px;    border-radius: 5px;">
+        <h6>Who to follow</h6>
+        <div class="full-width buffer-top " id="feedFriendSuggestion"></div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="full-width pull-left  full-height no-display">
+
+        <h4>Today's debate topics</h4>
+        <div class="full-width pull-left ">
+
+            <div class="full-width pull-left   " id="topicsContainer"></div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<div class="width50-percent full-height pull-right full-width-tablet ctr-right-5-percent">
+    <div class="feed_header buffer-top" id="create-feed" style="background:#fff;border: 1px solid #dddfe2;">
+        <input type="hidden" id="txtFeedId" />
+        <div class="full-width pull-left ">
+
+            <div class="full-width new-feed" style="    border-bottom: 1px solid #f4f4f4;">
+                <ul class="nav-horizontal new-feed-tab ">
+                    <li class="new-feed-tab-row tabbar-selected" id="li-addFeed">Feed</li>
+                    <li class="new-feed-tab-row" id="li-askQuestio">Ask a question</li>
+                    <li class="new-feed-tab-row" id="li-addArticle">Write an Article</li>
+                </ul>
+                <div class="pull-right btn red" id="close-post-input">x</div>
+            </div>
+
+
+            <div class="full-width padding-10 no-display" style="border-bottom:1px solid #f4f4f4 " id="select-category">
+                <ul class="nav-horizontal category">
+                    <li index="1" class="ctg">Islam</li>
+                    <li index="2" class="ctg"> Comparative religion</li>
+                 
+                    <li index="3" class="ctg">Information Technology</li>
+                    <li index="4" class="ctg">Srience</li>
+                    <li index="5" class=" ctg">Social</li>
+                    <li index="6" class=" ctg">History</li>
+                    <li index="7" class="ctg">Politics</li>
+                    <!--li index="7" class="ctg">Sports</li>-->
+                    <li index="8" class="ctg">Computer and Interner</li>
+                    <li index="9" class="ctg">Health and Fitness</li>
+                    <li index="10" class="ctg">Education</li>
+                    <li index="11" class="ctg">Beginner guides </li>
+                    <li index="12" class="ctg">Current Affairs </li>
+                    
+                </ul>
+            </div>
+            <div class="full-width " id="normal-feed-wrapper" style="position:relative">
+
+                <div class="field-wrapper buffer-bottom full-width">
+
+
+                    <textarea type="text" cols='60' rows='8' placeholder="Share what's on your mind" class="no-focus no-shadow form-control textarea" id="txtFeedText" style="border:0; background:#fff; overflow: hidden;    resize: none; white-space:pre-line" bind="text-feed"></textarea>
+                   
+                    <div class="box no-display tagSuggestion" style="margin-top: 3px;height: 200px; position: absolute; z-index: 500; width: 100%; float: left; background: #fff; padding: 12px;overflow: hidden;" id="tagSuggestion">
+
+                        <div class="full-width buffer-top row-tag">
+                            <div class="row_pic_container_sm">
+                                <img src="resource/images/default/profile.svg" class="img-responsive profile_pic_small">
+                            </div>
+                            <div class="chatrow_userdetails_container">
+
+                                <p class="pull-left full-width notification-msg"> <span class="notification-text">Muhammadullah Chowdhury</span> </p>
+                                <span class="pull-left" style="color: #868686; font-size: 9px; margin-left: 7px">@muhammad</span>
+
+                            </div>
+                        </div>
+                        <div class="full-width buffer-top row-tag">
+                            <div class="row_pic_container_sm">
+                                <img src="resource/images/default/profile.svg" class="img-responsive profile_pic_small">
+                            </div>
+                            <div class="chatrow_userdetails_container">
+
+                                <p class="pull-left full-width notification-msg"> <span class="notification-text">Muhammadullah Chowdhury</span> </p>
+                                <span class="pull-left" style="color: #868686; font-size: 9px; margin-left: 7px">@muhammad</span>
+
+                            </div>
+                        </div>
+                        <div class="full-width buffer-top row-tag">
+                            <div class="row_pic_container_sm">
+                                <img src="resource/images/default/profile.svg" class="img-responsive profile_pic_small">
+                            </div>
+                            <div class="chatrow_userdetails_container">
+
+                                <p class="pull-left full-width notification-msg"> <span class="notification-text">Muhammadullah Chowdhury</span> </p>
+                                <span class="pull-left" style="color: #868686; font-size: 9px; margin-left: 7px">@muhammad</span>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+              
+                <div class="full-width padding-10">
+                    <div class="width50-percent pull-left" id="feed-media-upload">
+                        <div class="btn" style="width: 25px; height: 25px; border-radius: 13px;     margin-right: 9px;background: #e8e4e4; padding: 4px;float:left;">
+                            <img src="resource/images/icon/uoload-image.png" style="margin-left: 1px; margin-top: 1px" class="imgPhotoComment pull-left" id="feedAddPhoto">
+                        </div>
+                        <!--144563-->
+                        <div class="btn" style="width: 25px; height: 25px; border-radius: 13px;cursor:pointer;     margin-right: 9px;background: #e8e4e4; padding: 3px;float:left;" id="upload-video">
+                            <img src="resource/images/icon/video.png" style="margin-left: 3px; margin-top: 1px" class="imgPhotoComment pull-left">
+                        </div>
+
+                    </div>
+
+                    <div class="width50-percent pull-right">
+                        <div class=" no-display " id="feedAddLoader" style="width: 57px; margin: -15px auto;  height: 10px;">
+                            <img src="../resource/images/default/loader.gif" height="50" />
+
+                        </div>
+                        <button type="button" value="Post" class="btn pull-right btn-blue" id="btnPostTextFeed" ><span>Post</span></button>
+                        <button type="button" value="Update" class="btn pull-right btn-blue" id="btnUpdateFeed" style="display:none" ><span>Update</span></button>
+                    </div>
+
+
+
+                    <div class="full-width pull-left buffer-top">
+
+
+
+
+                        <input type="file" name="feedmdeia" class="no-display" id="feedmdeia" multiple="multiple" accept="image/x-png,image/gif,image/jpeg" />
+                        <div class="full-width pull-left  no-display buffer-top padding-10 box " id="feedMediaContainar" >
+
+
+
+                            <div class="pull-right" id="clearMediaFeed"><img src="../resource/images/icon/close.png" height="10" /></div>
+                            <label bind="text-feed" id="midiafeed-text" class="full-width pull-left text-feed"></label>
+                            <!--<img id="output" max-height="300" />-->
+                            <div class="full-width" id="output2"></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="full-width no-display box padding-10" id="urlContent" isset="false">
+                        <span class="pull-right close" id="closeUrlContent">x</span>
+                        <h4 id="lblElternalUrlTitle"></h4>
+                        <p id="lblElternalUrldesc" class="full-width "></p>
+                        <span class="full-width" id="lblExternalUrllink"></span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="full-width no-display padding-10 field-wrapper" id="article-post-wrapper">
+                <div class="full-width" style="border-bottom:1px solid #f4f4f4">
+                    <input type="text" class="form-control no-focus no-berder no-shadow" maxlength="100" placeholder="title" id="txtArticleTitle" />
+                </div>
+                <div class="full-width" style="border-bottom:1px solid #f4f4f4;padding-top: 10px;">
+
+
+                    <textarea type="text" class="no-focus no-shadow form-control textarea bg-white no-berder" maxlength="250" placeholder="short description" id="txtShortDescriptione"></textarea>
+                </div>
+                <div class="full-width">
+                    <textarea type="text" placeholder="Write an ariticle" class="form-control textarea" id="txtWriteArticle" style="border:0; background:#fff; overflow: hidden;    resize: none; display:none" bind="text-feed"></textarea>
+                </div>
+
+                <button type="button" class="btn btn-blue pull-right buffer-bottom" id="btnSaveArticle" value="Post Article" ><span>Post Article</span></button>
+                <button type="button" class="btn btn-blue pull-right buffer-bottom" id="btnUpdateArticle" value="Update Article" style="display:none"><span>Update Article</span></button>
+                <input type="file" name="feedmdeia" class="no-display" id="article_file_upload" />
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<style>
+    /*.rich-text-editor {
+    
+    }
+
+    .rich-text-editor-view {
+        border-bottom: 1px solid #f4f4f4;
+    }*/
+
+    .ctg_selected {
+        background: #9ca9f3 !important;
+    }
+</style>

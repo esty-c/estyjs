@@ -1,0 +1,46 @@
+﻿<div id="signUpContainer" class="full-height full-width accessContainer" >
+    <div class="accessContainer-inner" style="height: 327px;">
+
+        <form id="signupForm">
+            <div class="row"><h4>Create new account</h4></div>
+            <div class="row buffer-top pull-left">
+                <input type="text" class="form-control" placeholder="Name" id="txtSignUpName" required />
+            </div>
+            <div class="row buffer-top pull-left">
+                <input type="email" class="form-control" placeholder="Email" id="txtSignUpNameEmail" required />
+            </div>
+
+            <div class="row buffer-top pull-left">
+                <input type="text" class="form-control" placeholder="Username" id="txtSignUpUserName" required />
+            </div>
+
+            <div class="row buffer-top pull-left">
+                <input type="password" class="form-control" placeholder="Password" id="txtSignUpPassword" required />
+            </div>
+
+            <div class="row buffer-top pull-left">
+                <button type="submit" value="Sign up" class="btn btn-blue pull-left" id="btnSignUp" required >
+                    <span>Sign up</span>
+
+                </button>
+
+
+                <img src="resource/images/icon/ajax-loader.gif" class="pull-left no-display" id="loader-signup" style="margin-top: -25px; margin-left: 24px;" />
+            </div>
+            <div class="row buffer-top pull-left">
+                <label id="lblSignupResult" class="no-dispaly full-width text-center"></label>
+            </div>
+        </form>
+        <div class="no-dispaly row pull-left " id="success-registration" style="display:none">
+            <h5>Contratulation</h5>
+            <h6>Your have successfully register.</h6>
+            <h6>A verification link has been sent to your email account</h6>
+
+        </div>
+        <a href="/signin" class="full-width text-center buffer-top" style="font-size: 15px;">Go to signin</a>
+
+    </div>
+
+
+</div>
+

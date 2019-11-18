@@ -1,0 +1,67 @@
+﻿<div class="pull-left hide-on-tablet side-bar">
+
+    <div class="full-width buffer-top" style="  padding: 10px;    border-radius: 5px;">
+        <ul class="nav-vertical " style="font-size:18px;">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/livefeed">Feed</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/notification">Notification</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="width30-percent min-height-100 pull-right full-width-phone">
+    <div class="full-width buffer-bottom" id="profileContainer" style=" padding: 15px; background:#fff">
+    </div>
+</div>
+<div class="width50-percent min-height-100 pull-right full-width-tablet ctr-right-5-percent">
+
+    <div class="full-width   buffer-bottom padding-10-desktop">
+        <div class="full-width   buffer-bottom ">
+            <div class="full-width myprofile-header">
+                <div class="full-width pull-left box" style="height: 39px;">
+                    <ul class="tabbar profile-header">
+
+                        <li class="tabbar-selected feed-li " id="tab-feed">Feed</li>
+                        <li class="feed-li hide-on-desktop" id="tab-About" style="display:none">About</li>
+                        <li class="feed-li " id="tab-Follower">Follower</li>
+                        <li class="feed-li " id="tab-Following">Following</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="full-width pull-left" style="min-height:400px">
+
+                <div class="full-width feed-li-view no-display bg-white padding-10 box" id="viewAbout">
+                </div>
+                <div class="full-width feed-li-view no-display bg-white padding-10 box" id="viewFollowing">
+                    <div class="full-width" id="displayFollowing"></div>
+                    <div class="full-width buffer-top buffer-bottom">
+                        <input type="button" class="btn-transparent no-focus pull-right no-display" value="See more" id="btnShowMoreFollowing" />
+                    </div>
+                </div>
+
+                <div class="full-width feed-li-view no-display bg-white padding-10 box" id="viewFollower">
+
+                    <div class="full-width" id="displayFollower"></div>
+                    <div class="full-width buffer-top buffer-bottom">
+                        <input type="button" class="btn-transparent no-focus pull-right no-display" value="See more" id="btnShowMoreFollower" />
+                    </div>
+
+                </div>
+                <div class="full-width feed-li-view" id="viewFeed">
+
+                    <div class="full-width " id="viewMyFeedContainer"></div>
+                    <div class="full-width no-display" id="profile-feed-loader">
+
+                        <div style="width:59px; margin:0px auto">
+                            <img src="../resource/images/default/loader.gif" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

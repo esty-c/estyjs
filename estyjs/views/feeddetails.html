@@ -1,0 +1,92 @@
+﻿<div class="pull-left hide-on-tablet side-bar">
+
+    <div class="full-width buffer-top" style=" padding:10px; border-radius:5px;">
+        <ul class="nav-vertical " style="font-size:18px;">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/livefeed">Feed</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/notification">Notification</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="full-width pull-left  mcontainer full-height" id="FeedContainer">
+
+
+
+    <div class="width30-percent full-height pull-right padding-10  hide-on-tablet">
+        <div class="full-width padding-10 " style="background:#fff;">
+
+            <div class="full-width pull-left ">
+
+                <h6>Populer Trends</h6>
+                <div class="full-width pull-left">
+                    <ul class="nav-vertical trends" id="fd-trends"></ul>
+
+                </div>
+
+
+            </div>
+
+            <div class="full-width" style="border-radius: 5px;font-size:11px">
+                <h6>Populer feed's</h6>
+
+
+
+                <div class="full-width" id="populerFeed"></div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="width50-percent full-height pull-right full-width-tablet padding-10-desktop ctr-right-5-percent buffer-top">
+
+        <!--<div class="row pull-left  no-display-in-phone">
+            <h4>Live Feed's</h4>
+        </div-->
+
+
+        <div class="full-width pull-left" style=" padding-bottom 42px;">
+            <div class="full-width" id="feeddetails-loader">
+                <div style="width:150px; margin:0px auto">
+                    <img src="resource/images/default/loader.gif" height="50" />
+                </div>
+            </div>
+            <!--<input type="button" value="Share" id="shareBtn" />-->
+            <div id="viewSingleFeed">
+
+            </div>
+          
+          
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<style>
+    .btnModify {
+        font-size: 17px;
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,141 @@
+﻿<!--<div class="width30-percent pull-right" style="height:400px"></div>-->
+<div class="full-width pull-right">
+    <div class="full-width bg-white padding-10 pull-right">
+        <h6>Nearby Friend's</h6>
+        <div class="full-width " id="viewNarByPeople"></div>
+        <div style="width:200px; margin:0px auto" id="nearbyfriendLoader"><img src="../resource/images/default/loader.gif" height="40" /></div>
+        <div class="full-width  buffer-bottom buffer-top">
+            <input type="button" value="See more" class="btn-transparent pull-right no-focus no-display" id="btnShowNearbyMorePeople" />
+        </div>
+    </div>
+    <div class="full-width bg-white padding-10 pull-right">
+        <h6>Most Popular</h6>
+        <div class="full-width " id="most-popular"></div>
+        <div style="width:200px; margin:0px auto" id="loaderPopular"><img src="../resource/images/default/loader.gif" height="40" /></div>
+        <div class="full-width  buffer-bottom buffer-top">
+            <input type="button" value="See more" class="btn-transparent pull-right no-focus no-display" id="btnShowPopularPeople" />
+        </div>
+    </div>
+
+</div>
+
+
+<!--<script>
+
+    var headers = localStorage.getItem('access_token');
+
+    var apiSearch = {
+        nearbyPeople: function (page) {
+
+
+            e('#nearbyfriendLoader').show();
+            var url = host + 'api/apisearch/NearByFriend';
+
+            new HttpRequest(url, function () { }, headers).getRequest(function (json) {
+
+                console.log("blockFriend" + json.flag);
+
+                json.list.forEach(function (obj) {
+
+
+
+                    if (obj.profile_picture != null) {
+                        obj.profile_picture = host + obj.profile_picture + "&type=sm";
+                    }
+                    else {
+                        obj.profile_picture = 'resource/images/default/profile.svg';
+                    }
+
+
+
+
+                });
+                new Template(json.list, 'friendTemplate', 'viewNarByPeople').append();
+                e('.btnFollow').on('click', function (evnt) {
+                    var account_id = this.getAttribute('account-id');
+
+                    let selector = evnt.target.closest('.find-friend-row');
+                    selector.style.display = 'none';
+                    apiCall.follow(account_id);
+                });
+
+                e('#viewNarByPeople').getObject(0).setAttribute("total_page", json.pagging.total_page);
+                e('#viewNarByPeople').getObject(0).setAttribute("current_page", json.pagging.current_page);
+
+                if (json.pagging.current_page >= json.pagging.total_page) {
+                    e('#btnShowNearbyMorePeople').hide();
+                }
+                else {
+                    e('#btnShowNearbyMorePeople').show();
+                }
+               
+                e('#nearbyfriendLoader').hide();
+            });
+        },
+        popularPeople: function (page) {
+            e('#loaderPopular').show();
+            var url = host + 'api/apisearch/MostPopular?page=' + page + '&pagesize=20';
+
+
+            new HttpRequest(url, function () { }, headers).getRequest(function (json) {
+
+                console.log("blockFriend" + json.flag);
+       
+
+                json.list.forEach(function (obj) {
+                    if (obj.profile_picture != null) { obj.profile_picture = host + obj.profile_picture + "&type=sm";
+                    }
+                    else { obj.profile_picture = 'resource/images/default/profile.svg';
+                    }
+                });
+
+
+                new Template(json.list, 'friendTemplate', 'most-popular').append();
+                e('.btnFollow').on('click', function (evnt) {
+                    var account_id = this.getAttribute('account-id');
+
+                    let selector = evnt.target.closest('.find-friend-row');
+                    selector.style.display = 'none';
+                    apiCall.follow(account_id);
+                });
+                e('#most-popular').getObject(0).setAttribute("total_page", json.pagging.total_page);
+                e('#most-popular').getObject(0).setAttribute("current_page", json.pagging.current_page);
+          
+                if (json.pagging.current_page >= json.pagging.total_page) {
+
+                    e('#btnShowPopularPeople').hide();
+                }
+                else {
+                 
+                    e('#btnShowPopularPeople').show();
+                }
+
+                e('#loaderPopular').hide();
+              
+            });
+        }
+    };
+    apiSearch.nearbyPeople(1);
+    apiSearch.popularPeople(1);
+
+    e('#btnShowNearbyMorePeople').on("click", function () {
+        var current_page = e('#viewNarByPeople').getObject(0).getAttribute("current_page");
+        var total_page = e('#viewNarByPeople').getObject(0).getAttribute("total_page");
+        if (current_page <= total_page) {
+            current_page++;
+            apiSearch.nearbyPeople(current_page);
+        }
+
+    });
+
+    e('#btnShowPopularPeople').on("click", function () {
+        var current_page = e('#most-popular').getObject(0).getAttribute("current_page");
+        var total_page = e('#most-popular').getObject(0).getAttribute("total_page");
+        if (current_page <= total_page) {
+            current_page++;
+            apiSearch.popularPeople(current_page);
+        }
+
+    });
+</script>-->
+

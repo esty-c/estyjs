@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html class="full-height">
+<head>
+    <title>TapSocial</title>
+    <style></style>
+
+    <meta charset="utf-8">
+
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle">
+    <meta name="Author" content="tapsocial.com">
+    <script>
+        (function (ElementProto) {
+            if (typeof ElementProto.matches !== 'function') {
+                ElementProto.matches = ElementProto.msMatchesSelector || ElementProto.mozMatchesSelector || ElementProto.webkitMatchesSelector || function matches(selector) {
+                    var element = this;
+                    var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+                    var index = 0;
+
+                    while (elements[index] && elements[index] !== element) {
+                        ++index;
+                    }
+
+                    return Boolean(elements[index]);
+                };
+            }
+
+            if (typeof ElementProto.closest !== 'function') {
+                ElementProto.closest = function closest(selector) {
+                    var element = this;
+
+                    while (element && element.nodeType === 1) {
+                        if (element.matches(selector)) {
+                            return element;
+                        }
+
+                        element = element.parentNode;
+                    }
+
+                    return null;
+                };
+            }
+        })(window.Element.prototype);
+        function findAncestor(el, sel) {
+            while ((el = el.parentElement) && !el.classList.contains(cls));
+            return el;
+        }
+    </script>
+
+    <link href="resource/css/style.css" rel="stylesheet" />
+    <link href="resource/css/chat.css" rel="stylesheet" />
+    <link href="resource/css/style.mobile .css" rel="stylesheet" />
+    <link href="resource/css/style.desktop.css" rel="stylesheet" />
+
+    <link href="resource/css/style.tablet.css" rel="stylesheet" />
+
+    <!--<link href="resource/css/toast.css" rel="stylesheet" />-->
+    <!--<script src="libs/RegularExpression.js"></script>-->
+    <!--<script src="libs/template.js"></script>-->
+
+
+
+</head>
+
+<body class="full-height">
+
+    <div class="full-width no-display" id="fullbodygray"></div>
+    <div id="report-wrapper" class="padding-10 no-display popup-window">
+
+        <div class="full-width" style="height: 23px;  font-weight: 500; padding-top: 3px;font-size: 14px;">
+
+            Why are you reporting this?
+            <img src="resource/images/icon/close.png" style="float: right; height: 7px; margin-top: 3px; cursor: pointer;" class="closeReport" />
+        </div>
+
+        <div class="full-width">
+            <ul class="nav-vertical noselect " id="report-auto-ct">
+                <li class="report-text">I don't want to see</li>
+                <li class="report-text">I think it's fake, spam or a scam</li>
+                <li class="report-text">it's violating terms and condition</li>
+                <li class="report-text">sextual explisit conent</li>
+                <li class="report-text">others</li>
+            </ul>
+            <div class="full-width no-display" id="report-manually-ct">
+                <textarea class="textarea form-control buffer-top" id="txtManualReport" placeholder="why you are reporting"></textarea>
+                <button class="btn buffer-top" id="btnManualReport"><span>Save</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!--<div id="loderMain"  style=" width: 50px; height: 52px; background: #fff; border-radius: 4px; margin: 0px auto; padding: 10px; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; z-index: 100; border: 1px solid #f4f4f4;">
+        <img src="resource/images/icon/ajax-loader.gif" height="30" />
+    </div>-->
+
+    <div class="full-width nav-bar" >
+        <div class="row-middle" id="cNav">
+
+            <div class="full-width pull-left ">
+
+                <div class="no-display" id="nav-dashboard-view">
+
+                    <ul class="nav-horizontal header-nav full-width full-width-phone no-display-in-phone" style="z-index:50; width:calc(100% - 10px);">
+                        <li style="margin-top: 0px; width: 58px;" class="hide-on-tablet">
+                            <div class="pull-left logo"><a href="#home" style="color:#000">TapSocial</a></div>
+                        </li>
+
+                        <!--<li id="li_feed"><a href="#home" id="mnuFeed">Home</a>  </li>-->
+                        <li id="li_feed"><a href="/livefeed" id="mnuFeed"> Live feed </a>  </li>
+                        <li>  <a href="/profile" class="btnProfile">  Profile  </a></li>
+                        <li>  <a href="/settings">  Settings  </a></li>
+                        <li> <a href="/findfriend">  Find Friend  </a></li>
+                        <li class="pull-right">
+
+                            <input type="text" class="form-control hide-on-mobile global-search " placeholder="search" style="" id="txtSearch" />
+                            <div id="txtSearch-dropdown" class="box global-search-body full-width no-display hide-on-tablet global-search" style="">
+                                <header class="full-width" style="height: 31px; background: #eae8e8; padding: 5px;">
+                                    <span class="clear-notification pull-right" id="clearNotification">Clear</span>
+                                </header>
+                                <div id="notification-body" class="full-width style-4 " style="height:calc(93% - 20px); overflow-y:scroll "></div>
+                            </div>
+                        </li>
+
+                        <li class="pull-right no-display-in-phone" style="float:right !important"> <a href="/logout" id="logOut">Log Out </a></li>
+
+                        <li id="notification_li" class="pull-right" style="float:right !important">
+                            <span id="notification_count" class="no-display notification_count counter-feed">0</span>
+                            <div href="#" id="notificationLink" class="hide-on-tablet notificationLink">
+                                <img src="resource/images/icon/notifications.png" height="20" width="20" style="margin-top: -1px; float:left" id="li-notification" />
+                                <div id="notificationContainer" class="no-display notificationContainer">
+                                    <div id="notificationTitle">Notifications</div>
+                                    <div id="notificationsBody" class="notifications style-4" style="min-height: 200px; max-height: 253px; overflow-y: scroll;">
+
+                                        <div class="full-width nav-horizontal" id="ntcContainer"></div>
+                                    </div>
+                                    <div id="notificationFooter"><a href="#notification" style="color:#000">See All</a></div>
+                                </div>
+                            </div>
+
+                            <a href="/notification" class="hide-on-desktop" style="padding:0">
+                                <!--<img src="resource/images/icon/notifications.png" height="18" width="18" style="margin-top: 2px;" />-->
+
+                                <div class="hide-on-desktop text-center " style="width:20px; margin:0px auto">
+                                    <img src="resource/images/icon/notifications.png" height="18" width="18" id="li-notification">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav-horizontal header-nav full-width no-display full-width-phone hide-on-desktop" style="z-index:50; width:calc(100% - 94px)">
+
+                        <li> <a href="/livefeed"> <img src="resource/images/icon/feed.png" height="20" width="20"> </a> </li>
+                        <li> <a href="/profile"> <img src="resource/images/icon/me.png" height="20" width="18"> </a> </li>
+                        <li> <a href="/search"> <img src="resource/images/icon/search.png" height="20" width="20"> </a> </li>
+
+                        <li>
+                            <a href="/notification" class="notificationLink">
+                                <span class="counter-feed notification_count-mobile no-display notification_count">0</span>
+                                <img src="resource/images/icon/notifications.png" height="20" width="20">
+                            </a>
+                        </li>
+
+                        <li> <a href="#info"> <img src="resource/images/icon/menu.png" height="20" width="20"> </a> </li>
+                    </ul>
+                </div>
+
+                <div class="full-width no-display" id="nav-global-view">
+                    <div class="pull-left logo"><a href="#home" style="color:#000">TapSocial</a></div>
+
+
+
+                    <ul class="nav-horizontal header-nav full-width " style="z-index:50; width:calc(100% - 94px)">
+                        <li class="pull-left" >
+                            <a href="/home">
+                                <span class="pull-left">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="pull-left" >
+                            <a href="/services">
+                                <span class="pull-left">Services</span>
+                            </a>
+                        </li>
+
+                        <li class="pull-left">
+                            <a href="/products">
+                                <span class="pull-left">Products</span>
+                            </a>
+                        </li>
+
+
+                        <li class="pull-left">
+                            <a href="/about">
+                                <span class="pull-left">About</span>
+                            </a>
+                        </li>
+
+
+                        <li class="pull-left">
+                            <a href="/contact">
+                                <span class="pull-left">Contact Us</span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <!--<li class="pull-right no-display-in-phone" style="float:right !important;    margin-top: 0px;">
+
+                            <a href="/signup" class="btn btn-blue">
+                                <span>Get started</span>
+                            </a>
+                        </li>
+
+
+
+                        <li class="pull-right" style="float:right !important">
+                            <a href="/signin">
+                                <span class="pull-left">Log In</span>
+                            </a>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-width app" style="margin-top: 48px; position: absolute" id="mainContainer">
+        <div class="full-width" style="border-radius: 0 0 6px 6px; height: 100%;position:absolute;    max-width: 1474px;">
+
+            <div class="full-width" style="">
+                <div class="main-container full-width-tablet full-height">
+
+                    <div id="app" class="full-width pull-left fullheight app">
+
+                        <section id="home" class="full-height"></section>
+                        <section id="services" class="full-height"></section>
+                        <section id="products" class="full-height"></section>
+                        <section id="about" class="fullheight"></section>
+                        <section id="contact" class="fullheight"></section>
+                        <section id="home"></section>
+                        <section id="signin" class="fullheight"></section>
+                        <section id="signup" class="fullheight"></section>
+                        <section id="logout" class="fullheight"></section>
+                        
+                        <section id="feeddetails" class="fullheight"></section>
+                        <section id="settings" class="fullheight"></section>
+                        <section id="search" class="fullheight"></section>
+
+                        <section id="info" class="fullheight"></section>
+
+                        <section id="story" class="fullheight"></section>
+
+                        <section id="aboutus" class="fullheight"></section>
+                        <section id="privacypolicy" class="fullheight"></section>
+                        <section id="helpcenter" class="fullheight"></section>
+                        <section id="findfriend" class="fullheight"></section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<script src="libs/esty.js"></script>-->
+    <script src="libs/jquery-1.10.2.min.js"></script>
+ 
+    <script type="text/javascript" src="libs/esty.vanilla.route.js"></script>
+
+ 
+
+    <script src="libs/app.js?v=2"></script>
+</body>
+</html>

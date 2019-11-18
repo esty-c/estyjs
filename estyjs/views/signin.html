@@ -1,0 +1,200 @@
+﻿<div id="signinContainer" class="full-height full-width accessContainer">
+    <div class="accessContainer-inner">
+        <form id="signupForm">
+            <div class="row"><h4>Login</h4></div>
+
+            <div class="row buffer-top">
+                <input type="text" class="form-control" placeholder="username" id="txtUsername" required />
+            </div>
+
+            <div class="row buffer-top">
+                <input type="password" class="form-control" placeholder="password" id="txtPassword" required />
+            </div>
+
+            <div class="row buffer-top">
+                <button type="submit" value="Login" class="btn btn-blue pull-left" id="btnSignin" >
+                <span>Login</span>
+                </button>
+                <img id="loderSignIn" class="pull-left no-display" src="resource/images/default/loader.gif" height="50" style="margin-top:-9px;margin-left:10px; " />
+            </div>
+            <div class="full-width buffer-top no-dispaly padding error-text" id="signInErrorMessage">
+
+            </div>
+
+        </form>
+
+        <div class="full-width text-center ">
+            <a href="/signup" class="buffer-top" style="font-size: 15px;">Create new account</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+
+
+    e('#signupForm').on("submit", function (evnt) {
+        SignIn();
+        evnt.preventDefault();
+        return false;
+
+
+    });
+
+   // (document).getElementById('btnSignin').addEventListener('click', function () { SignIn(); }, false);
+
+    function SignIn() {
+
+
+        var device_id = browser();
+ 
+        detectPrivateMode(function (isPrivateMode) {
+            if (isPrivateMode) {
+                device_id = "private-" + device_id;
+
+            }
+            device_id += "-signalr";
+            let username = document.getElementById('txtUsername').value;
+            let password = document.getElementById('txtPassword').value;
+  
+            var senddata = 'grant_type=password&username=' + username + '&password=' + password + '&device=web&device_name=chrome&device_id=' + device_id + '';
+
+            e('#loderSignIn').show();
+      
+            new HttpRequest(host + "api/authenticate", function (code,message) {
+                e('#loderSignIn').hide();
+                let json = JSON.parse(message);
+                console.log(json);
+                console.log(json.error);
+                e('#signInErrorMessage').val(json.error);
+                e('#signInErrorMessage').show();
+
+             
+            }, '').postRequest(senddata, function (data) {
+                data = JSON.parse(data);
+
+                var access_token = "bearer " + data.access_token;
+                token = access_token;
+                console.log(access_token);
+                localStorage.setItem('access_token', access_token);
+                let name = data.name;
+                e('#lblMyName').val(name);
+                let account_id = data.account_id;
+                let private_id = data.private_id;
+                let profile_picture = data.profile_picture;
+
+                if (isNullOrWhitespace(profile_picture)) {
+                    profile_picture = 'resource/images/default/profile.svg';
+                }
+                else {
+                    profile_picture = host + profile_picture + "&size=sm";
+                }
+
+               // e('#myPorfilePic').getObject(0).setAttribute('src', profile_picture);
+
+                localStorage.setItem('name', name);
+                localStorage.setItem('account_id', account_id);
+                localStorage.setItem('private_id', private_id);
+                localStorage.setItem('profile_picture', profile_picture);
+                localStorage.setItem('username', data.username);
+
+          
+                app.initPage("livefeed");
+           
+               
+            });
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    }
+
+    function detectPrivateMode(cb) {
+        var db,
+        on = cb.bind(null, true),
+        off = cb.bind(null, false)
+
+        function tryls() {
+            try {
+                localStorage.length ? off() : (localStorage.x = 1, localStorage.removeItem("x"), off());
+            } catch (e) {
+                // Safari only enables cookie in private mode
+                // if cookie is disabled then all client side storage is disabled
+                // if all client side storage is disabled, then there is no point
+                // in using private mode
+                navigator.cookieEnabled ? on() : off();
+            }
+        }
+
+        // Blink (chrome & opera)
+        window.webkitRequestFileSystem ? webkitRequestFileSystem(0, 0, off, on)
+        // FF
+        : "MozAppearance" in document.documentElement.style ? (db = indexedDB.open("test"), db.onerror = on, db.onsuccess = off)
+        // Safari
+        : /constructor/i.test(window.HTMLElement) || window.safari ? tryls()
+        // IE10+ & edge
+        : !window.indexedDB && (window.PointerEvent || window.MSPointerEvent) ? on()
+        // Rest
+        : off()
+    }
+
+    var browser = function () {
+        // Return cached result if avalible, else get result then cache it.
+        if (browser.prototype._cachedResult)
+            return browser.prototype._cachedResult;
+
+        // Opera 8.0+
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+        // Firefox 1.0+
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+
+        // Safari 3.0+ "[object HTMLElementConstructor]" 
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+        // Edge 20+
+        var isEdge = !isIE && !!window.StyleMedia;
+
+        // Chrome 1+
+        var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+        // Blink engine detection
+        var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+        return browser.prototype._cachedResult =
+            isOpera ? 'Opera' :
+            isFirefox ? 'Firefox' :
+            isSafari ? 'Safari' :
+            isChrome ? 'Chrome' :
+            isIE ? 'IE' :
+            isEdge ? 'Edge' :
+            isBlink ? 'Blink' :
+            "Don't know";
+    };
+    app.bindNewAnchor();
+</script>
+
+
+<style>
+
+    .side-bar {
+    display:none;
+    }
+</style>
